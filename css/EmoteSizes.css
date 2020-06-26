@@ -1,0 +1,52 @@
+:root {
+	--hoverSize: 1.25;
+	--reactionHoverSize: 1.05;
+	--delayAmount: 0s;
+	--largeSize: 2.4rem;
+	--smallSize: 22px;
+	--reactionSize: 1.7em;
+	--transitionSpeed: 0.5s;
+}
+#app-mount div[class*="markup-"] > .emoji.jumboable,
+#app-mount div[class*="markupRtl-"] > .emoji.jumboable {
+	height: auto;
+	width: var(--largeSize);
+	transform: scale(1);
+	transition: transform var(--transitionSpeed);
+	transition-delay: 0s;
+}
+#app-mount div[class*="markup-"] > .emoji.jumboable:hover,
+#app-mount div[class*="markupRtl-"] > .emoji.jumboable:hover{
+	transform: scale(var(--hoverSize));
+	position: relative;
+	z-index: 1;
+	transition-delay: var(--delayAmount);
+}
+#app-mount div[class*="markup-"] > .emoji:not(.jumboable),
+#app-mount div[class*="markupRtl-"] > .emoji:not(.jumboable) {
+	height: auto;
+	width: var(--smallSize);
+	transform: scale(1);
+	transition: transform var(--transitionSpeed);
+	transition-delay: 0s;
+}
+#app-mount div[class*="markup-"] > .emoji:not(.jumboable):hover,
+#app-mount div[class*="markupRtl-"] > .emoji:not(.jumboable):hover {
+	transform: scale(var(--hoverSize));
+	position: relative;
+	z-index: 1;
+	transition-delay: var(--delayAmount);
+}
+#app-mount div[class*="reaction-"] .emoji, div[class*="reaction-"][class*="reactionMe-"] .emoji {
+	height: var(--reactionSize);
+	width: auto;
+}
+#app-mount div[class*="reaction-"] {
+	transition: transform var(--transitionSpeed);
+	transition-delay: 0s;
+}
+#app-mount div[class*="reaction-"]:hover {
+	transform: scale(var(--reactionHoverSize)) !important;
+	z-index: 1000;
+	transition-delay: var(--delayAmount);
+}
